@@ -1,0 +1,87 @@
+====================================================
+  ResumeAI Analyzer — HOW TO RUN (Read This First!)
+====================================================
+
+FOLDER STRUCTURE:
+resume-ai-project/
+├── backend/         ← Node.js + Gemini AI
+│   ├── server.js
+│   ├── package.json
+│   └── .env.example
+└── frontend/        ← React App
+    ├── src/
+    ├── package.json
+    └── vite.config.js
+
+====================================================
+STEP 1 — Get Free Gemini API Key (2 minutes)
+====================================================
+1. Go to: https://aistudio.google.com
+2. Sign in with your Google account
+3. Click "Get API Key" → "Create API Key"
+4. Copy the key (looks like: AIzaSy...)
+
+====================================================
+STEP 2 — Setup Backend
+====================================================
+Open PowerShell and run:
+
+  cd resume-ai-project\backend
+  npm install express cors multer dotenv
+
+Now create .env file:
+  - Copy .env.example → rename to .env
+  - Open .env in Notepad
+  - Replace "paste_your_gemini_key_here" with your actual key
+  - Save
+
+Start backend:
+  node server.js
+
+You should see: ✅ Backend running on http://localhost:5000
+Keep this PowerShell window open!
+
+====================================================
+STEP 3 — Setup Frontend
+====================================================
+Open a NEW PowerShell window and run:
+
+  cd resume-ai-project\frontend
+  npm install
+  npm run dev
+
+You should see: Local: http://localhost:5173
+Open this link in your browser!
+
+====================================================
+STEP 4 — Use the App
+====================================================
+1. Open http://localhost:5173 in browser
+2. Paste your resume text OR upload .txt file
+3. Optionally paste a job description
+4. Click "Analyze My Resume"
+5. See your ATS score + fixes!
+
+====================================================
+TROUBLESHOOTING
+====================================================
+Error: "port 5000 in use"
+→ Run: netstat -ano | findstr :5000
+→ Then: taskkill /PID <number> /F
+
+Error: "Analysis failed"
+→ Check backend window — is it still running?
+→ Check your GEMINI_API_KEY in .env file
+
+Error: "npm not found"
+→ Install Node.js from https://nodejs.org (LTS version)
+
+====================================================
+FOR YOUR RESUME / GITHUB README — Say this:
+====================================================
+"Built an AI-powered Resume Analyzer using React.js,
+Node.js, Express.js, and Google Gemini AI API.
+Features: ATS scoring, keyword gap analysis,
+file upload with Multer, REST API backend."
+
+====================================================
